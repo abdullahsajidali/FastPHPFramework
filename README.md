@@ -100,14 +100,14 @@ class CustomerControlelr extends BaseController
 
 ##Thanks to
 
-*Jakob Oberhummer
-*Andi Mery 
+* Jakob Oberhummer
+* Andi Mery 
 
 
 ##Projects using FastPHPFramework 
 
-*[Das merken die nie](http://dasmerkendienie.com/)
-*[Fresha Online Shop](http://fresha.moving-bytes.at)
-*[Video Platform](http://video.codejungle.org)
-*[Stock Market Game (old version)](http://boerse.codejungle.org/)
+* [Das merken die nie](http://dasmerkendienie.com/)
+* [Fresha Online Shop](http://fresha.moving-bytes.at)
+* [Video Platform](http://video.codejungle.org)
+* [Stock Market Game (old version)](http://boerse.codejungle.org/)
 
