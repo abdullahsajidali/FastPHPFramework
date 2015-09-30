@@ -2,16 +2,21 @@
 
 ##Requirements
 
-*PHP 5
-*PDO
+* PHP 5
+* PDO
 
 ## Intro 
 
 This is a blueprint of FastPHPFramework.
 Its purpose is rapid php development and its also a good starting point to understand MCV. 
-This version contains the URL Routing and MVC part, Template engine is PHP. 
+This version contains 
 
-## Example Define Model
+1 URL Routing 
+2 MVC 
+3 Template engine 
+4 PHPMailer 
+
+## Example define model
 
 This model should reflect your DB Table, notice that id must be a auto_increment in MySQL
 or serial in Postgres. 
@@ -85,8 +90,8 @@ class CustomerControlelr extends BaseController
 
 	$contact = new Contact();
 	$contact = $contact->get($request['id']);
-        $this->assign("contact", $contact);
-        $this->render("contact.php");
+	$this->assign("contact", $contact);
+	$this->render("contact.php");
     }
 
 }
@@ -95,14 +100,14 @@ class CustomerControlelr extends BaseController
 
 ##Thanks to
 
-Jakob Oberhummer
-Andi Mery 
+*Jakob Oberhummer
+*Andi Mery 
 
 
 ##Projects using FastPHPFramework 
 
-[Das merken die nie](http://dasmerkendienie.com/)
-[Fresha Online Shop](http://fresha.moving-bytes.at)
-[Video Platform](http://video.codejungle.org)
-[Stock Market Game (old version)](http://boerse.codejungle.org/)
+*[Das merken die nie](http://dasmerkendienie.com/)
+*[Fresha Online Shop](http://fresha.moving-bytes.at)
+*[Video Platform](http://video.codejungle.org)
+*[Stock Market Game (old version)](http://boerse.codejungle.org/)
 
