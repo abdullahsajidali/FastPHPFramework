@@ -1,4 +1,4 @@
-# FastPHPFramework
+# FastPHPFramework aka FPF
 
 ##Requirements
 
@@ -7,19 +7,25 @@
 
 ## Intro 
 
-This is a blueprint of FastPHPFramework.
-Its purpose is rapid php development and its also a good starting point to understand MCV. 
-This version contains 
+This is a blueprint of FPF.
+Its purpose is rapid php development and its also a nice starting point to understand MCV. 
 
-1 URL Routing 
-2 MVC 
-3 Template engine 
-4 PHPMailer 
+This version contains only the nessary stuff:
 
-## Example define model
+1. URL Routing 
+2. MVC 
+3. Template engine 
+4. PHPMailer 
 
-This model should reflect your DB Table, notice that id must be a auto_increment in MySQL
-or serial in Postgres. 
+Other versions of FPF contain already an authentication layer (with FB), Mailchimp, PDF Generation, Payment Providers and much more. 
+We are still looking for a nice way, how we can plug in play such function easyly and provide it to you as 
+installation package.
+
+
+## Model
+
+The model reflect your DB table. Please note that the primary, id in this case must be a auto_increment in MySQL or serial in Postgres. Of cause you can extend this model with your own Queries, but note, with
+this in place, you have already basic CRUD (Create, Read, Update, Delete)  methods on you table.
 
 ```
 <?php
@@ -40,41 +46,46 @@ class contacts extends BaseApp
 ```
 
 
-With this model, you have now basic CRUD Methods (Create, Read, Update, Delete) 
-on you table contacts.
-
-## Example (using model)
+## Now how to use this model?
 
 ```
 
 # create a new contact
 $new_contact = new contacts();
 $new_contact->firstname = "andreas";
+$new_contact->lastname = "beder";
 $new_contact->save();
 
 # get a list of all users with given properties
 $list = $contact->get_list(array("firstname" => "andreas",
                                  "lastname" => "beder"));
-foreach($list as $obj)
+foreach($list as $contact)
 {
-    # updateing a list is very comfortable
-    $obj->email="andreas@codejungle.org";
-    $obj->save();
+    # updateing a entry is very comfortable
+    $contact->email="andreas@codejungle.org";
+    $contact->save();
 
     # deleting is easy as well
-    $obj->del($obj->id);
+    $contact->del($contact->id);
 }
 ```
 
 
-## Routing example 
-see routing.php
+## URL - Routing
+Here we define which url (/customer/ has which parameter (id) and method (GET). 
+Also validation is included i stands for integar in example. 
+And last but not least the Object CustomerController and method getData() which
+is resbonsible for this request.
 
 ```
 $router->map( 'GET', '/customer/[i:id]/', 'CustomerController#getData' );
 ```
 
-## Controller example
+## Controller 
+
+The Controller holds everything together, 
+useally we get some parameters (in this example the id of a given contact),
+make some db queries on our model contacts and render some template out. 
 
 
 ```
